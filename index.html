@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue js Day 2</title>
+  </head>
+  <body>
+    <div id="app">
+      <ol>
+        <li v-for="activity in todoList">{{activity}}</li>
+      </ol>
+
+      <input type="text" v-model="list" /><button @click.prevent="tambahkan()">Tambahkan</button>
+
+      <p v-if="todoList.length >= 4">Hebat</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+
+    <script>
+      // Instance
+      const myApps = new Vue({
+        el: "#app",
+        data: {
+          todoList: [],
+          list: "",
+        },
+        methods: {
+          tambahkan() {
+            this.todoList.push(this.list);
+            this.list = "";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
